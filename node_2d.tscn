@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://damktm3mqgnq3"]
+
+[ext_resource type="PackedScene" uid="uid://cp8uhh1tfdyeg" path="res://ship.tscn" id="1_qlw4n"]
+[ext_resource type="Texture2D" uid="uid://nk5hb4fia184" path="res://light.jpg" id="2_kp7ub"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0, 1)
+shadow_enabled = true
+texture = ExtResource("2_kp7ub")
+metadata/_edit_lock_ = true
+
+[node name="Basic Ship" parent="." instance=ExtResource("1_qlw4n")]
+position = Vector2(346, 214)

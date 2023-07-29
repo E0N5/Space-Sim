@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp8uhh1tfdyeg"]
+
+[ext_resource type="Texture2D" uid="uid://d2etikj6fq6s8" path="res://bluebird.png" id="1_4o3lj"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_efvyg"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_25nww"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lwh28"]
+closed = false
+polygon = PackedVector2Array(24, -4, 24, 1, 22, 3, 18, 5, 14, 6, 12, 9, 8, 10, 7, 14, 6, 18, 5, 21, 4, 25, 3, 26, -3, 26, -4, 25, -5, 21, -6, 18, -7, 14, -8, 10, -12, 9, -13, 8, -14, 6, -18, 5, -22, 3, -24, 1, -24, -4, -11, -5, -9, -6, -6, -7, -5, -10, -4, -15, -3, -19, -2, -23, -1, -26, 1, -26, 2, -23, 3, -19, 4, -15, 5, -10, 6, -7, 9, -6, 11, -5, 24, -4)
+
+[node name="Basic Ship" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_efvyg")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_4o3lj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CharacterBody2D"]
+rotation = 1.5708
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_lwh28")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+rotation = 1.5708
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("2_25nww")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(0, -26, 1, -26, 2, -23, 3, -19, 4, -15, 5, -10, 6, -7, 9, -6, 11, -5, 24, -4, 24, 1, 22, 3, 18, 5, 14, 6, 13, 8, 12, 9, 8, 10, 7, 14, 6, 18, 5, 21, 4, 25, 3, 26, -3, 26, -4, 25, -5, 21, -6, 18, -7, 14, -8, 10, -12, 9, -13, 8, -14, 6, -18, 5, -22, 3, -24, 1, -24, -4, -11, -5, -9, -6, -6, -7, -5, -10, -4, -15, -3, -19, -2, -23, -1, -26)
